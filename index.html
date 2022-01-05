@@ -1,3 +1,25 @@
 <html>
+    <head>
+        <script src="js/js.js"></script>
+        <script src="js/DZ.js"></script>
+        <script src="js/keywords.js"></script>
 
+        <script src="js/factions/gcps.js"></script>
+    </head>
+    <body>
+        <select id="factionselector" onChange="displayFactionUnits()">
+            <option value="None" selected> - </option> 
+            <option value="asterians">Asterians</option>
+            <option value="enforcers">Enforcers</option>
+            <option value="forgefathers">Forge Fathers</option>
+            <option value="gcps">GCPS</option>
+            <option value="marauders">Marauders</option>
+            <option value="mazonlabs">Mazon Labs</option>
+            <option value="nameless">Nameless</option>
+            <option value="rebs">Rebs</option>
+            <option value="plague">The Plague</option>
+            <option value="veermyn">Veer-Myn</option>
+        </select>
+        <button onclick='console.log(DZ.GCPS.Units)'> Function Tester</button>
+    </body>
 </html>
