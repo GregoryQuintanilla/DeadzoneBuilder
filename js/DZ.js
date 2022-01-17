@@ -3,6 +3,16 @@ var DZ = {};
 DZ.Profile = function(name = "",speed = [0,0], range = 5, fight = 5, save = 5, armor = 0, health = 1, size = 1, base = 25,
         strikeTeamRule = null){
     this.Name = name;
+    this.Stats = {
+      "SP":speed[0]+"-"+speed[1],
+      "RA":range,
+      "FI":fight,
+      "SV":save,
+      "AR":base,
+      "HP":health,
+      "SZ":size,
+      "Base":base+"mm"
+    }
     this.Speed = speed;
     this.Range = range;
     this.Fight = fight;

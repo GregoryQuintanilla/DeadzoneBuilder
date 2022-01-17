@@ -1,3 +1,4 @@
+var tableStatArr = ["SP","RA","FI","SV","AR","HP","SZ","Base"];
 function buildFactionSelect(faction){
     var unitList = null;
     switch(faction){
@@ -33,6 +34,59 @@ function buildFactionSelect(faction){
             break;
     }
     if(unitList !== null){
+      var profileDiv = document.createElement("div");
+      profileDiv.class="unit-entry";
+
+      //Begin Populating Profiles
+      unitList.forEach( unitProfile =>{
+        var profDiv = document.createElement("span")
+        profDiv.textContent = unitProfile.Name;
+
+        //Begin Creating Table
+        var profStatTable = document.createElement("table");
+        var header = profStatTable.createTHead();
+        var body = profStatTable.createTBody();
+        var hrow = header.insertRow(0); 
+        var brow = body.insertRow(0);
+        tableStatArr.forEach(stat =>{
+          var hcell = hrow.insertCell();
+          var bcell = brow.insertCell();
+          hcell.innerHTML = stat;
+          bcell.innerHTML = unitProfile.Stats[stat];
+        }) 
+        //end Stat Table Creation
+
+        //Special Rules
+        var kwSpan = document.createElement("span");
+        var kwRuleStr = ""
+        unitProfile.Keywords.forEach(kw =>{
+          kwRuleStr = kwRuleStr + kw.Name +'-'; //LEFT OFF, radio name
+        });
+        kwSpan.textContent = kwRuleStr; 
+        //End Keywords
+
+        unitProfile.Options.forEach(optionProfile => {
+          var unitOptionSpan = document.createElement("span");
+          var unitOptionRadio = document.createElement("input");
+          unitOptionRadio.type="radio";
+          var inputName ="";
+          var unitNameArr = unitProfile.Name.split(' ')
+          unitNameArr.forEach(str =>{
+            inputName = inputName + "-" + str
+          });
+          unitOptionRadio.name=""
+        });
+        profileDiv.appendChild(profDiv);
+        profileDiv.appendChild(kwSpan)
+        profileDiv.appendChild(profStatTable);
+      });
+
+      var listDiv = document.getElementById("unit-entries");
+      listDiv.appendChild(profileDiv);
+    }
+    /*
+    if(unitList !== null){
+      // Drop down menu isn't user friendly. The Box with check boxes is much much better.
         console.log(unitList);
         var parentSelect = document.createElement("select");
         unitList.forEach(unitProfile =>{
@@ -44,7 +98,7 @@ function buildFactionSelect(faction){
             });
         });
         document.body.appendChild(parentSelect);
-    }
+    } */
 }
 function displayFactionUnits(){
     faction = document.getElementById("factionselector").value;
