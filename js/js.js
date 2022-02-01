@@ -107,21 +107,7 @@ function buildFactionSelect(faction){
       var listDiv = document.getElementById("unit-entries");
       listDiv.appendChild(profileDiv);
     }
-    /*
-    if(unitList !== null){
-      // Drop down menu isn't user friendly. The Box with check boxes is much much better.
-        console.log(unitList);
-        var parentSelect = document.createElement("select");
-        unitList.forEach(unitProfile =>{
-            unitProfile.Options.forEach(optionProfile => {
-                var curOption = document.createElement("OPTION");
-                curOption.value = optionProfile.Name;
-                curOption.appendChild(document.createTextNode(unitProfile.Name));
-                parentSelect.appendChild(curOption);
-            });
-        });
-        document.body.appendChild(parentSelect);
-    } */
+    
 }
 function displayFactionUnits(){
     var faction = document.getElementById("factionselector").value;
