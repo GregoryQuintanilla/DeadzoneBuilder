@@ -70,14 +70,23 @@ function buildFactionSelect(faction){
           var unitOptionRadio = document.createElement("input");
           unitOptionRadio.type="radio";
           var inputName ="";
-          var unitNameArr = unitProfile.Name.split(' ')
+          var unitNameArr = unitProfile.Name.split(' ');
+          for(var i = 0; i < unitNameArr.length - 1; i+=2){
+            inputName = inputName + unitNameArr[i]+ "-";
+            inptuName = inputName + unitNameArr[i]
+
+
+          }
           unitNameArr.forEach(str =>{
             inputName = inputName + "-" + str
           });
-          unitOptionRadio.name=""
+          unitOptionRadio.name = inputName;
+          console.log(unitOptionRadio.name);
         });
+        var brk = document.createElement("br");
         profileDiv.appendChild(profDiv);
-        profileDiv.appendChild(kwSpan)
+        profileDiv.appendChild(brk);
+        profileDiv.appendChild(kwSpan);
         profileDiv.appendChild(profStatTable);
       });
 
