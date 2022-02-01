@@ -8,7 +8,7 @@ DZ.GCPS.Ranger.Keywords.push(DZ.Keywords.JumpPack());
 
 //Create a new option
 //LAser Carbine Option
-RangerLaserCarbineOption = new DZ.Option("Ranger","Troop",2,14);
+RangerLaserCarbineOption = new DZ.Option("Laser Carbine","Troop",2,14);
 //Create a weapon profile for the option
 RangerLaserCarbine = new DZ.Weapon("Laser Carbine",6,0);
 RangerLaserCarbine.Keywords.push(DZ.Keywords.RapidFire());
@@ -19,26 +19,26 @@ RangerLaserCarbineOption.Weapons.push(RangerLaserCarbine);
 DZ.GCPS.Ranger.Options.push(RangerLaserCarbineOption);
 
 //Ranger Flamethrower Option
-RangerFlamerOption = new DZ.Option("Ranger","Troop",2,14);
+RangerFlamerOption = new DZ.Option("Flamer","Troop",2,14);
 RangerFlamer = new DZ.Weapon("Flamethrower",2,0);
 RangerFlamer.Keywords.push(DZ.Keywords.ItBurns());
 RangerFlamerOption.Weapons.push(RangerFlamer);
 DZ.GCPS.Ranger.Options.push(RangerFlamerOption);
 
 //Ranger Laser carbine & Thermal Mines Option
-RangerLaserCarbineThermalMineOption = new DZ.Option("Ranger","Specialist",2,16);
+RangerLaserCarbineThermalMineOption = new DZ.Option("Laser Carbine & Thermal Mines","Specialist",2,16);
 RangerLaserCarbineThermalMineOption.Weapons.push(RangerLaserCarbine);
 RangerThermalMines = new DZ.Weapon("Thermal Mines",0,3);
 RangerLaserCarbineThermalMineOption.Weapons.push(RangerThermalMines);
 DZ.GCPS.Ranger.Options.push(RangerLaserCarbineThermalMineOption);
 //Ranger Accutek LW-AWP Option
-RangerAccutekLWAWPOption = new DZ.Option("Ranger",3,19);
+RangerAccutekLWAWPOption = new DZ.Option("Accutek LW-AWP","Specialist",3,19);
 RangerAccutekLWAWP = new DZ.Weapon("Accutek LW-AWP",10,0);
 RangerAccutekLWAWP.Keywords.push(DZ.Keywords.SniperScope());
 RangerAccutekLWAWPOption.Weapons.push(RangerAccutekLWAWP);
 DZ.GCPS.Ranger.Options.push(RangerAccutekLWAWPOption);
 //Ranger Thermal Rifle Option
-RangerThermalRifleOption = new DZ.Option("Ranger",2,16);
+RangerThermalRifleOption = new DZ.Option("Thermal Rifle","Specialist",2,16);
 RangerThermalRifle = new DZ.Weapon("Thermal Rifle",4,2);
 RangerThermalRifleOption.Weapons.push(RangerThermalRifle);
 DZ.GCPS.Ranger.Options.push(RangerThermalRifleOption);

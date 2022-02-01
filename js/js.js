@@ -1,4 +1,14 @@
 var tableStatArr = ["SP","RA","FI","SV","AR","HP","SZ","Base"];
+//helper funtion to add breaks to DOM
+function createBreak(){
+  return document.createElement("br");
+}
+function clearUnitEntries(){
+  var unitEntries = document.getElementById("unit-entries");
+  while(unitEntries.firstChild){
+    unitEntries.removeChild(unitEntries.firstChild);
+  }
+}
 function buildFactionSelect(faction){
     var unitList = null;
     switch(faction){
@@ -37,6 +47,7 @@ function buildFactionSelect(faction){
       var profileDiv = document.createElement("div");
       profileDiv.class="unit-entry";
 
+
       //Begin Populating Profiles
       unitList.forEach( unitProfile =>{
         var profDiv = document.createElement("span")
@@ -65,29 +76,32 @@ function buildFactionSelect(faction){
         kwSpan.textContent = kwRuleStr; 
         //End Keywords
 
+        var unitNameArr = unitProfile.Name.split(' ');
+        var inputName ="";
+        var i = 0;
+        while(i < unitNameArr.length-1){
+          inputName = inputName + unitNameArr[i]+ "-";
+          i++;
+        }
+        inputName = inputName + unitNameArr[i];
+
+        //var brk = document.createElement("br");
+        profileDiv.appendChild(profDiv);
+        profileDiv.appendChild(createBreak());
+        profileDiv.appendChild(kwSpan);
+        profileDiv.appendChild(profStatTable);
+
         unitProfile.Options.forEach(optionProfile => {
           var unitOptionSpan = document.createElement("span");
           var unitOptionRadio = document.createElement("input");
-          unitOptionRadio.type="radio";
-          var inputName ="";
-          var unitNameArr = unitProfile.Name.split(' ');
-          for(var i = 0; i < unitNameArr.length - 1; i+=2){
-            inputName = inputName + unitNameArr[i]+ "-";
-            inptuName = inputName + unitNameArr[i]
-
-
-          }
-          unitNameArr.forEach(str =>{
-            inputName = inputName + "-" + str
-          });
-          unitOptionRadio.name = inputName;
-          console.log(unitOptionRadio.name);
+          unitOptionRadio.setAttribute('type','radio');
+          unitOptionRadio.setAttribute('name',inputName);
+          unitOptionSpan.textContent = optionProfile.Type + " - " + optionProfile.Name + " for " + optionProfile.Cost;
+          console.log(optionProfile);
+          profileDiv.appendChild(unitOptionSpan);
+          profileDiv.appendChild(unitOptionRadio);
+          profileDiv.appendChild(createBreak());
         });
-        var brk = document.createElement("br");
-        profileDiv.appendChild(profDiv);
-        profileDiv.appendChild(brk);
-        profileDiv.appendChild(kwSpan);
-        profileDiv.appendChild(profStatTable);
       });
 
       var listDiv = document.getElementById("unit-entries");
@@ -110,7 +124,8 @@ function buildFactionSelect(faction){
     } */
 }
 function displayFactionUnits(){
-    faction = document.getElementById("factionselector").value;
+    var faction = document.getElementById("factionselector").value;
+    clearUnitEntries();
     console.log(faction);
     buildFactionSelect(faction);
 }

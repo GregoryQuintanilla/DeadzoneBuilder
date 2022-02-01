@@ -27,11 +27,11 @@ DZ.Profile = function(name = "",speed = [0,0], range = 5, fight = 5, save = 5, a
 }
 
 
-DZ.Weapon = function(name = "", range = 0, ap = 0){
+DZ.Weapon = function(name = "", range = 0, ap = 0, kw = []){
     this.Name = name;
     this.Range = range;
     this.AP = ap;
-    this.Keywords = [];
+    this.Keywords = kw;
 }
 
 
